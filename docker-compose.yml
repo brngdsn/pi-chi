@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+
+  clock:
+    build: ./clock
+    ports:
+      - "30000"
+
+  nginx:
+    build: ./nginx
+    environment:
+      - NGINX_HOST=$HOST
+    ports:
+      - "80:80"
+    links:
+      - clock
