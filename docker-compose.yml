@@ -2,16 +2,10 @@ version: '3'
 
 services:
 
-  clock:
-    build: ./clock
-    ports:
-      - "30000"
-
   nginx:
+    image: nginx:latest
     build: ./nginx
     environment:
       - NGINX_HOST=$HOST
     ports:
       - "80:80"
-    links:
-      - clock
